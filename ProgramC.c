@@ -38,9 +38,22 @@ int myPeuler02(int nums) {
     return sum;
 }
 
+int myPeuler06(int max) {
+    int sqreSum = 0, sumSqre = 0;
+    for ( int i = 0; i < max; i++) {
+        sumSqre = sumSqre + (i*i);
+        sqreSum = sqreSum + i;
+    }
+    sqreSum = sqreSum * sqreSum;
+    printf("%d, %d\n", sumSqre, sqreSum);
+    return sqreSum - sumSqre;
+}
+
 int main (void)
 {
-    printf("%d", myPeuler02(1000000));
+    printf("%d", myPeuler06(101));
+    // printf("%d", myPeuler02(100));   
+    // printf("%d", myPeuler02(1000000));
     // printf("%d", myPeuler01(1000));
     // myFirstFunction();
     return 0;
