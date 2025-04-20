@@ -1,2 +1,4 @@
-ctrl + 1 Git Push
-ctrl +  tab Git commit
+ctrl + 1        Git Push
+ctrl +  tab     Git commit
+ctrl + q        clear output
+ctrl + /        comment the line

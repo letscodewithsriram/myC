@@ -1,4 +1,5 @@
 # include <stdio.h>
+# include <stdlib.h>
 
 int myFirstFunction(void) {
     printf("Hello, World!");
@@ -49,15 +50,44 @@ int myPeuler06(int max) {
     return sqreSum - sumSqre;
 }
 
+int myPeuler07(int max) {
+    int k = 0, prime_array[100] = {};
+    int pa_len = sizeof(prime_array) / sizeof(prime_array[0]); 
+    for (int i = 2; i < max; i++) {
+        for (int pa_idx = 0; pa_idx < pa_len; pa_idx++) {
+            if ((i % prime_array[pa_idx] != 0) && (prime_array[pa_idx] != 0)){
+                int counter = 1;
+                for (int j = 2; j < max; j++) {
+                    if ((i % j == 0) && (i != j )){
+                        counter = 0;
+                        break;
+                    }
+                    // printf("%d - %d -> %d\n", i, j, counter);
+                }
+                if (counter) {
+                    // printf("Entered into loop i=%d, counter=%d, k=%d\n", i,counter,k);
+                    // printf("Index of Array is %d\n", k);
+                    prime_array[k] = i;
+                    // printf("%d->%d->%d\n", i, k, counter);
+                    k++;
+                }
+            }
+        }
+    }
+
+    for (int z = 1; z < 100; z++) {
+        printf("%d -> ", prime_array[z]);
+    }
+    return 555;
+}
+
 int main (void)
 {
-    printf("%d", myPeuler06(101));
+    printf("%d", myPeuler07(100));
+    // printf("%d", myPeuler06(101));
     // printf("%d", myPeuler02(100));   
     // printf("%d", myPeuler02(1000000));
     // printf("%d", myPeuler01(1000));
     // myFirstFunction();
     return 0;
 }
-
-
-
